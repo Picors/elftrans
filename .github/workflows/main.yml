@@ -14,4 +14,4 @@ jobs:
         server: ftp.elftrans.com
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        server-dir: /home/u934824589/domains/elftrans.com/public_html	
+        server-dir: /home/u934824589/domains/elftrans.com/public_html/
