@@ -140,13 +140,11 @@
                                     id="status_keberangkatan" name="status_keberangkatan" required>
                                     <option value="">Pilih Status Keberangkatan</option>
                                     <option value="berangkat"
-                                        {{ old('status_keberangkatan') == 'berangkat' ? 'selected' : '' }}>Berangkat
+                                        {{ old('status_keberangkatan') == 'berangkat' ? 'selected' : '' }}>Jalan
                                     </option>
-                                    <option value="belum berangkat"
-                                        {{ old('status_keberangkatan') == 'belum berangkat' ? 'selected' : '' }}>Belum
-                                        Berangkat</option>
+
                                     <option value="selesai"
-                                        {{ old('status_keberangkatan') == 'selesai' ? 'selected' : '' }}>Selesai
+                                        {{ old('status_keberangkatan') == 'selesai' ? 'selected' : '' }}>Libur
                                     </option>
                                 </select>
                                 @error('status_keberangkatan')
