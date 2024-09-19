@@ -153,4 +153,5 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/pesan_pelanggan/create', [PesanPelangganController::class, 'create'])->name('admin.pesan_pelanggan.create');
 
     Route::get('/admin/pesan_pelanggan/{id}/edit', [PesanPelangganController::class, 'edit'])->name('admin.pesan_pelanggan.edit');
+      Route::post('/admin/update-status', [AdminController::class, 'updateStatus'])->name('admin.update_status');
 });
