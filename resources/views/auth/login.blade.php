@@ -43,7 +43,7 @@
                         </div>
                     @endif
 
-                    <div class="card shadow col-11 col-lg-10 col-md-10 bg-grey-light-color">
+                     <div class="card shadow col-11 col-lg-10 col-md-10 bg-grey-light-color">
                         <div class="card-body rounded-3">
                             <h5 class="fw-bold">Masuk Akun</h5>
                             <div class="form-group has-feedback">
@@ -53,7 +53,7 @@
                                     <span class="input-group-text bg-grey-color"><i
                                             class="bi bi-person-fill text-grey-color"></i></span>
                                     <input type="text" name="username" class="form-control bg-grey-color"
-                                        placeholder="Masukan Username" id="username" />
+                                        placeholder="Masukan Username" id="username" required />
                                 </div>
                             </div>
                             <div class="form-group has-feedback">
@@ -63,7 +63,7 @@
                                     <span class="input-group-text bg-grey-color"><i
                                             class="bi bi-lock-fill text-grey-color"></i></span>
                                     <input type="password" name="password" class="form-control bg-grey-color"
-                                        placeholder="Masukan Password" id="password" />
+                                        placeholder="Masukan Password" id="password" required />
                                     <span class="input-group-text bg-grey-color" id="togglePassword"><i
                                             class="bi bi-eye-slash-fill text-primary-color"></i></span>
                                 </div>
