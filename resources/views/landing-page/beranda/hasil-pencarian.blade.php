@@ -115,8 +115,13 @@
                                                     {{ $mobilElf->jadwalKedatangan->jam_kedatangan ?? 'N/A' }}
                                                 </p>
                                             </div>
-                                            <h5 class="fw-bold text-green-color">
-                                                {{ $mobilElf->status_keberangkatan ?? 'N/A' }}</h5>
+                                             @if ($mobilElf->status_keberangkatan == 'berangkat')
+                                                <h5 class="fw-bold text-green-color">Status: <span
+                                                        class="badge bg-primary">Jalan</span></p>
+                                                @elseif ($mobilElf->status_keberangkatan == 'selesai')
+                                                    <h5 class="fw-bold text-green-color">Status: <span
+                                                            class="badge bg-secondary">Libur</span></p>
+                                            @endif
                                         </div>
                                     </div>
 
