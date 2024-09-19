@@ -9,32 +9,25 @@
                     <div class="container-fluid">
                         <form action="{{ route('cari_mobil_elf') }}" method="GET">
                             <div class="row">
-                                <div class="col-12 col-lg-4 p-0 ps-md-0">
-                                    {{-- Lokasi Awal --}}
+                                 <div class="col-12 col-lg-4 p-0 ps-md-0">
+                                    <!-- Lokasi Awal -->
                                     <div class="form-group me-auto me-lg-3 text-start">
                                         <label for="lokasi_awal" class="fw-bold mb-1">Lokasi Awal</label>
-                                        <select name="lokasi_awal" id="lokasi_awal"
-                                            class="form-control border bg-body-tertiary text-secondary rounded-4">
-                                            <option value="">Pilih Lokasi Awal</option>
-                                            @foreach ($rute as $lokasi)
-                                                <option value="{{ $lokasi->id }}">{{ $lokasi->nama_tempat }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" id="lokasi_awal"
+                                            class="form-control border bg-body-tertiary text-secondary rounded-4"
+                                            placeholder="Ketik Lokasi Awal">
+                                        <input type="hidden" id="lokasi_awal_id" name="lokasi_awal_id">
                                     </div>
                                 </div>
+
                                 <div class="col-12 col-lg-4 p-0 mt-3 mt-lg-0">
-                                    {{-- Lokasi Tujuan --}}
+                                    <!-- Lokasi Tujuan -->
                                     <div class="form-group text-start my-2 my-md-0 mx-0 mx-lg-3">
                                         <label for="lokasi_tujuan" class="fw-bold mb-1">Lokasi Tujuan</label>
-                                        <select name="lokasi_tujuan" id="lokasi_tujuan"
-                                            class="form-control border bg-body-tertiary text-secondary rounded-4">
-                                            <option value="">Pilih Lokasi Tujuan</option>
-                                            @foreach ($rute as $lokasi)
-                                                <option value="{{ $lokasi->id }}">{{ $lokasi->nama_tempat }}
-                                                </option>
-                                            @endforeach
-                                        </select>
+                                        <input type="text" id="lokasi_tujuan"
+                                            class="form-control border bg-body-tertiary text-secondary rounded-4"
+                                            placeholder="Ketik Lokasi Tujuan">
+                                        <input type="hidden" id="lokasi_tujuan_id" name="lokasi_tujuan_id">
                                     </div>
                                 </div>
                                 <div class="col-12 col-lg-4 p-0 mt-3 mt-lg-0">
@@ -186,10 +179,53 @@
     </script>
     <script>
         $(document).ready(function() {
-            $('#lokasi_awal, #lokasi_tujuan').select2({
-                placeholder: "Pilih Lokasi",
-                allowClear: true
+            // Data rute untuk autocomplete, ubah ini ke data yang diambil dari server jika dinamis
+            var ruteData = [
+                @foreach ($rute as $lokasi)
+                    {
+                        label: "{{ $lokasi->nama_tempat }}",
+                        value: "{{ $lokasi->id }}"
+                    },
+                @endforeach
+            ];
+
+            // Inisialisasi autocomplete untuk Lokasi Awal
+            $(document).ready(function() {
+                // Data rute untuk autocomplete, ubah ini ke data yang diambil dari server jika dinamis
+                var ruteData = [
+                    @foreach ($rute as $lokasi)
+                        {
+                            label: "{{ $lokasi->nama_tempat }}", // Nama tempat yang ditampilkan
+                            value: "{{ $lokasi->id }}" // ID tempat yang disimpan
+                        },
+                    @endforeach
+                ];
+
+                // Inisialisasi autocomplete untuk Lokasi Awal
+                $('#lokasi_awal').autocomplete({
+                    source: ruteData,
+                    minLength: 1, // Minimal karakter sebelum autocomplete aktif
+                    select: function(event, ui) {
+                        // Menampilkan nama_tempat di input teks
+                        $('#lokasi_awal').val(ui.item.label); // Tampilkan nama tempat
+                        // Menyimpan ID lokasi di input hidden
+                        $('#lokasi_awal_id').val(ui.item.value); // Simpan ID di input hidden
+                        return false; // Mencegah autocomplete menimpa nilai input
+                    }
+                });
+
+                // Inisialisasi autocomplete untuk Lokasi Tujuan
+                $('#lokasi_tujuan').autocomplete({
+                    source: ruteData,
+                    minLength: 1,
+                    select: function(event, ui) {
+                        $('#lokasi_tujuan').val(ui.item.label); // Tampilkan nama tempat
+                        $('#lokasi_tujuan_id').val(ui.item.value); // Simpan ID di input hidden
+                        return false; // Mencegah autocomplete menimpa nilai input
+                    }
+                });
             });
+
         });
     </script>
 @endsection
