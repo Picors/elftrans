@@ -19,33 +19,33 @@
                                 <form action="{{ route('cari_mobil_elf') }}" method="GET">
                                     <div class="row">
                                         <div class="col-12 col-lg-4 p-0 ps-md-0">
-                                            {{-- Lokasi Awal --}}
-                                            <div class="form-group me-auto me-lg-3 text-start">
-                                                <label for="lokasi_awal" class="fw-bold mb-1">Lokasi Awal</label>
-                                                <select name="lokasi_awal" id="lokasi_awal"
-                                                    class="form-control border bg-body-tertiary text-secondary rounded-4">
-                                                    <option value="">Pilih Lokasi Awal</option>
-                                                    @foreach ($rute as $lokasi)
-                                                        <option value="{{ $lokasi->id }}">{{ $lokasi->nama_tempat }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-4 p-0 mt-3 mt-lg-0">
-                                            {{-- Lokasi Tujuan --}}
-                                            <div class="form-group text-start my-2 my-md-0 mx-0 mx-lg-3">
-                                                <label for="lokasi_tujuan" class="fw-bold mb-1">Lokasi Tujuan</label>
-                                                <select name="lokasi_tujuan" id="lokasi_tujuan"
-                                                    class="form-control border bg-body-tertiary text-secondary rounded-4">
-                                                    <option value="">Pilih Lokasi Tujuan</option>
-                                                    @foreach ($rute as $lokasi)
-                                                        <option value="{{ $lokasi->id }}">{{ $lokasi->nama_tempat }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
+                                    {{-- Lokasi Awal --}}
+                                    <div class="form-group me-auto me-lg-3 text-start">
+                                        <label for="lokasi_awal" class="fw-bold mb-1">Lokasi Awal</label>
+                                        <select name="lokasi_awal" id="lokasi_awal"
+                                            class="form-control border bg-body-tertiary text-secondary rounded-4">
+                                            <option value="">Pilih Lokasi Awal</option>
+                                            @foreach ($rute as $lokasi)
+                                                <option value="{{ $lokasi->id }}">{{ $lokasi->nama_tempat }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-4 p-0 mt-3 mt-lg-0">
+                                    {{-- Lokasi Tujuan --}}
+                                    <div class="form-group text-start my-2 my-md-0 mx-0 mx-lg-3">
+                                        <label for="lokasi_tujuan" class="fw-bold mb-1">Lokasi Tujuan</label>
+                                        <select name="lokasi_tujuan" id="lokasi_tujuan"
+                                            class="form-control border bg-body-tertiary text-secondary rounded-4">
+                                            <option value="">Pilih Lokasi Tujuan</option>
+                                            @foreach ($rute as $lokasi)
+                                                <option value="{{ $lokasi->id }}">{{ $lokasi->nama_tempat }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
                                         <div class="col-12 col-lg-4 p-0 mt-3 mt-lg-0">
                                             {{-- Jadwal Keberangkatan --}}
                                             <div class="form-group mx-0 ms-lg-3 text-start">
@@ -549,6 +549,14 @@
             }
         });
         // end
+    </script>
+  <script>
+        $(document).ready(function() {
+            $('#lokasi_awal, #lokasi_tujuan').select2({
+                placeholder: "Pilih Lokasi",
+                allowClear: true
+            });
+        });
     </script>
 
     <!-- /.container-fluid -->
