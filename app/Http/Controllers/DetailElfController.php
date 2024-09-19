@@ -58,7 +58,7 @@ class DetailElfController extends Controller
     if ($request->hasFile('gambar')) {
       foreach ($request->file('gambar') as $image) {
         $imagePath = 'uploads/' . time() . '_' . $image->getClientOriginalName();
-        $image->move(public_path('uploads'), $imagePath);
+        $image->move(public_path('../../uploads'), $imagePath);
         $detailElf->gambar()->create(['path' => $imagePath]);
       }
     }
@@ -101,8 +101,8 @@ class DetailElfController extends Controller
     // Menangani gambar baru
     if ($request->hasFile('gambar')) {
       foreach ($request->file('gambar') as $image) {
-        $imagePath = 'uploads/' . time() . '_' . $image->getClientOriginalName();
-        $image->move(public_path('uploads'), $imagePath);
+        $imagePath = '../../uploads/' . time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('../../uploads'), $imagePath);
         $detailElf->gambar()->create(['path' => $imagePath]);
       }
     }

@@ -40,25 +40,25 @@ class HomePageController extends Controller
 
     if ($request->hasFile('logo')) {
       $logo = time() . '.' . $request->logo->getClientOriginalExtension();
-      $request->logo->move(public_path('uploads'), $logo);
+      $request->logo->move(public_path('../../uploads'), $logo);
       $homePage->logo = $logo;
     }
 
     if ($request->hasFile('icon')) {
       $icon = time() . '.' . $request->icon->getClientOriginalExtension();
-      $request->icon->move(public_path('uploads'), $icon);
+      $request->icon->move(public_path('../../uploads'), $icon);
       $homePage->icon = $icon;
     }
 
     if ($request->hasFile('logo_nav')) {
       $logo_nav = time() . '.' . $request->logo_nav->getClientOriginalExtension();
-      $request->logo_nav->move(public_path('uploads'), $logo_nav);
+      $request->logo_nav->move(public_path('../../uploads'), $logo_nav);
       $homePage->logo_nav = $logo_nav;
     }
 
     if ($request->hasFile('gambar_tentang')) {
       $gambar_tentang = time() . '.' . $request->gambar_tentang->getClientOriginalExtension();
-      $request->gambar_tentang->move(public_path('uploads'), $gambar_tentang);
+      $request->gambar_tentang->move(public_path('../../uploads'), $gambar_tentang);
       $homePage->gambar_tentang = $gambar_tentang;
     }
 

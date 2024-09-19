@@ -111,8 +111,8 @@
                     <div class="card  rounded-4 shadow ">
                         <div class="card-body py-4">
                             <img src="image/icon_bayar_tiket.png" alt="" width="96px" height="96px">
-                            <h5 class="mt-3 text-primary-color">Bayar Elf</h5>
-                            <p class="text-dark px-5">Tentukan pembayaran elf Anda, dan Anda akan menerima Elfin Anda.</p>
+                            <h5 class="mt-3 text-primary-color">Naiki Elf</h5>
+                            <p class="text-dark px-5">Naiki Elf Sesuai Tujuan.</p>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
         <div class="row justify-content-center mt-5">
             <div class="col-12 col-lg-5">
 
-                <h3 class="text-primary-color mb-3 mt-2 mt-lg-0">Lebih Kenal dengan Elfin</h3>
+                <h3 class="text-primary-color mb-3 mt-2 mt-lg-0">Lebih Kenal dengan ElfTrans</h3>
 
                 <p>{{ $konten->tentang_1 }} </p>
 

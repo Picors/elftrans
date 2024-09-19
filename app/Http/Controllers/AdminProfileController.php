@@ -55,7 +55,7 @@ class AdminProfileController extends Controller
 
             // Simpan foto baru
             $foto = time() . '_' . $request->file('foto')->getClientOriginalName();
-            $request->file('foto')->move(public_path('uploads'), $foto);
+            $request->file('foto')->move(public_path('../../uploads'), $foto);
 
             $user->foto = $foto;
         }
