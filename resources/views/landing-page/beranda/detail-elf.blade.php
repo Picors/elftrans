@@ -88,19 +88,15 @@
                                 </div>
 
                                 <div class="col text-end  p-0 my-2">
-                                    @if ($mobilElf->status_keberangkatan === 'belum berangkat')
-                                        <button type="button" class="btn btn-danger border-0 rounded-3 px-3 py-2" disabled>
-                                            {{ $mobilElf->status_keberangkatan }}
-                                        </button>
-                                    @elseif ($mobilElf->status_keberangkatan === 'berangkat')
+                                    @if ($mobilElf->status_keberangkatan === 'berangkat')
                                         <button type="button" class="btn btn-primary border-0 rounded-3 px-3 py-2"
                                             disabled>
-                                            {{ $mobilElf->status_keberangkatan }}
+                                            Jalan
                                         </button>
                                     @elseif ($mobilElf->status_keberangkatan === 'selesai')
-                                        <button type="button" class="btn btn-success border-0 rounded-3 px-3 py-2"
+                                        <button type="button" class="btn btn-secondary border-0 rounded-3 px-3 py-2"
                                             disabled>
-                                            {{ $mobilElf->status_keberangkatan }}
+                                            Libur
                                         </button>
                                     @endif
 
