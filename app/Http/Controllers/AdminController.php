@@ -21,4 +21,13 @@ class AdminController extends Controller
     // Mengembalikan view dengan data mobil elf
     return view('admin.dashboard', compact('mobilElfs', 'status', 'konten'));
   }
+
+  public function updateStatus(Request $request)
+  {
+    $mobilElf = MobilElf::findOrFail($request->id);
+    $mobilElf->status_keberangkatan = $request->status;
+    $mobilElf->save();
+
+    return response()->json(['success' => true]);
+  }
 }
