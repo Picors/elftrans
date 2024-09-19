@@ -79,7 +79,11 @@
                                         <td>{{ $mobilElf->jadwalKedatangan->ruteLokasi->nama_tempat ?? 'N/A' }} -
                                             {{ $mobilElf->jadwalKedatangan->jam_kedatangan ?? 'N/A' }}</td>
                                         <td>{{ $mobilElf->harga }}</td>
-                                        <td>{{ $mobilElf->status_keberangkatan }}</td>
+                                         @if ($mobilElf->status_keberangkatan == 'berangkat')
+                                            <td> <button class="btn btn-primary" disabled>Jalan</button></td>
+                                        @elseif ($mobilElf->status_keberangkatan == 'selesai')
+                                            <td> <button class="btn btn-secondary" disabled>Libur</button></td>
+                                        @endif
                                         <td>
                                             @foreach ($mobilElf->detailElf->ruteLokasi as $rute)
                                                 <span class="badge bg-primary">{{ $rute->nama_tempat }}</span>
