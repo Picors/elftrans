@@ -184,4 +184,12 @@
         });
         // End
     </script>
+    <script>
+        $(document).ready(function() {
+            $('#lokasi_awal, #lokasi_tujuan').select2({
+                placeholder: "Pilih Lokasi",
+                allowClear: true
+            });
+        });
+    </script>
 @endsection
