@@ -30,7 +30,7 @@
                         href="{{ route('admin.dashboard') }}">Dashboard</a>
                 @else
                     <a class="text-decoration-none text-primary-color fw-bold px-5 px-md-2 mx-auto mx-md-2"
-                        href="{{ route('login') }}">Masuk Admin</a>
+                        href="{{ route('login') }}"></a>
                 @endif
 
                 <!-- <a class="btn border-primary-color text-primary-color px-5 px-md-2 mx-auto mx-md-2" href="dashboard">Dashboard</a> -->
